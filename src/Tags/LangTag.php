@@ -11,11 +11,13 @@ class LangTag extends Tags
   private $defaultLocale;
   private $locales;
 
+  private $supported;
+
   public function __construct()
   {
     $this->defaultLocale = config('statamic.langtag.default', 'sk');
-    $supported = config('statamic.langtag.supported', ['sk', 'en']);
-    $this->locales = array_diff($supported, [$this->defaultLocale]);
+    $this->supported = config('statamic.langtag.supported', ['sk', 'en']);
+    $this->locales = array_diff($this->supported, [$this->defaultLocale]);
   }
 
   /**
@@ -51,7 +53,7 @@ class LangTag extends Tags
 
   private function isLocale(string $locale): bool
   {
-    if (!in_array($locale, $this->locales)) {
+    if (!in_array($locale, $this->supported)) {
       return false;
     }
     return app()->getLocale() === $locale;
