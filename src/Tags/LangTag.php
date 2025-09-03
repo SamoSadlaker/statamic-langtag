@@ -59,6 +59,11 @@ class LangTag extends Tags
     return app()->getLocale() === $locale;
   }
 
+  public function get(): string
+  {
+    return app()->getLocale();
+  }
+
   public function fix(): void
   {
     app()->setLocale(session('locale', $this->defaultLocale));
