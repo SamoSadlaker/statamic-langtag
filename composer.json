@@ -1,0 +1,46 @@
+{
+    "name": "samosadlaker/statamic-langtag",
+    "description": "Statamic LangTag addon",
+    "type": "statamic-addon",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samosadlaker",
+            "email": "dev@samosadlaker.eu"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SamoSadlaker\\StatamicLangtag\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SamoSadlaker\\StatamicLangtag\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "statamic/cms": "^5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Langtag",
+            "description": "Statamic Langtag addon"
+        },
+        "laravel": {
+            "providers": [
+                "SamoSadlaker\\StatamicLangtag\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
