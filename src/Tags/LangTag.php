@@ -56,7 +56,14 @@ class LangTag extends Tags
     if (!in_array($locale, $this->supported)) {
       return false;
     }
+    $this->fix();
     return app()->getLocale() === $locale;
+  }
+
+  public function get(): string
+  {
+    $this->fix();
+    return app()->getLocale();
   }
 
   public function fix(): void
