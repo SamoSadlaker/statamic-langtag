@@ -3,6 +3,12 @@
 
 Statamic Langtag is a Statamic CMS addon that simplifies multi-language content handling. It provides a custom tag for managing locale-specific content blocks and routes to switch between supported languages. This addon is especially useful for Statamic sites with multiple locales, helping you easily display content in different languages based on user selection or session.
 
+## Requirements
+
+- **Statamic** 5.x or 6.x
+- **Laravel** 11 (Statamic 5) or 12 (Statamic 6)
+- **PHP** 8.1+ (8.3+ when using Statamic 6)
+
 ## Features
 
 - Custom Statamic tag (`{{ lang_tag }}` and alias `{{ lt }}`) for rendering language-specific content
@@ -41,6 +47,7 @@ return [
 ### Switch Locale
 
 Navigate to `/lang/{locale}` to switch to a supported locale. For example: `/lang/en` or `/lang/sk`.
+The selected locale is stored in the session and used as the application locale.
 
 ### Template Tag
 
@@ -66,6 +73,16 @@ Conditions for checking current locale
 {{ {lang_tag:is locale="en"} ? 'Yes' : 'No'}}
 ```
 
+### Get current locale
+
+Returns the current locale
+
+```antlers
+{{ lang_tag:get }}
+```
+
+For example: `sk` or `en`.
+
 ### Alias
 
 You can also use the alias:
@@ -78,6 +95,10 @@ You can also use the alias:
 ```antlers
 {{lang_tag:fix }}
 ```
+
+## Support
+
+Found a bug or have a feature request? Please open an issue on [GitHub](https://github.com/SamoSadlaker/statamic-langtag/issues).
 
 ## License
 
